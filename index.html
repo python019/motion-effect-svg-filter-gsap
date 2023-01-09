@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Image Motion Effect with SVG Filter Gsap| Crimson</title>
+
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser");</script>
+	
+	</head>
+	<body>
+		<main>
+			<div class="content">
+				<svg id="theSVG" width="100%" height="100%" viewBox="0 0 1000 750">
+					<filter id="imgFilter">
+						<feTurbulence type="turbulence" baseFrequency="0.015" numOctaves="5" seed="4" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence1"/>
+						<feDisplacementMap in="SourceGraphic" in2="turbulence1" scale="0" xChannelSelector="R" yChannelSelector="B" x="0%" y="0%" width="100%" height="100%" result="displacementMap3"/>
+					</filter>
+					<g>
+						<image xlink:href="img/1.jpg" x="150" y="187.5" width="600" height="375" filter="url(#imgFilter)"/>
+					</g>
+				</svg>
+			</div>
+		</main>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+		<script src="js/index.js"></script>
+	</body>
+</html>
